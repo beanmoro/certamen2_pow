@@ -1,7 +1,7 @@
 
 const registrarMedida = async(medida)=>{
 
-    let respuesta = await axios.post("api/medidas/post", medida, {
+    let respuesta = await axios.post("api/medidas/post", medida, { //ERROR 500 :C
 
         headers:{
 
@@ -23,21 +23,33 @@ const getMedidas = async ()=>{
 };
 
 
-//const eliminarMedida = async(id)=>{
 
 
-//    try{
-//        let accion = await axios.post("api/medidas/delete", {id},{
+const eliminarMedida = async(id)=>{
 
-//            headers:{
 
-//                'Content-Type':'application/json'
-//            }
-//        });
-//        return accion.data == "OP";
+    try{
+        let accion = await axios.post("api/medidas/delete", {id},{
 
-//    }catch(e){
+            headers:{
 
-//        return false;
-//    }
-//}
+                'Content-Type':'application/json'
+            }
+        });
+        return accion.data == "OP";
+
+    }catch(e){
+
+        return false;
+    }
+}
+
+const filtrarMedidas = async(filter)=>{
+
+    let respuesta = await axios.get("api/medidas/filter", {filter}, {
+        headers:{
+            'Content-Type':'application/json'
+        }
+    });
+    return respuesta.data;
+}

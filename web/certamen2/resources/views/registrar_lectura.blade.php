@@ -51,10 +51,10 @@
                     <div class="mb-3">
                         <label for="tipomedida-input" class="form-label">Tipo de Medida</label>
                         <select class="form-select" id="tipomedida-input">
-                            <option value="kw">Kilowatts</option>
-                            <option value="w">Watts</option>
-                            <option value="c">Temperatura</option>
-
+                            <option value="kW">Kilowatts</option>
+                            <option value="W">Watts</option>
+                            <option value="C">Temperatura</option>
+                            
                           </select>
                     </div>
 

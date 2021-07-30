@@ -31,15 +31,28 @@ class MedidaController extends Controller
     }
 
 
-    //public function eliminarMedida(Request $request){
-    //
-    //    $input = $request->all();
-    //    $id = $input["id"];
+    public function eliminarMedida(Request $request){
+    
+        $input = $request->all();
+        $id = $input["id"];
 
-    //    $medida = Medida::findOrFail($id);
+        $medida = Medida::findOrFail($id);
 
-    //    $medida->delete();
+        $medida->delete();
 
-    //    return "OP";
-   // }
+        return "OP";
+    }
+
+    public function filtrarMedidas(Request $request){
+        $input = $request->all();
+        $filter = $input["filter"];
+        if($filter != "-1"){
+            $medidas = Medida::where("tipomedida", $filter)->get();
+        }else{
+
+            $medidas = getMedidas();
+        }
+        
+        return $medidas;
+    }
 }

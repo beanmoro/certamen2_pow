@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get("medidas/get", [MedidaController::class, "getMedidas"]);
+Route::get("medidas/filter", [MedidaController::class, "filtrarMedidas"]);
 Route::post("medidas/post", [MedidaController::class, "registrarMedida"]);
-//Route::post("medidas/delete", [MedidaController::class, "eliminarMedida"]);
+Route::post("medidas/delete", [MedidaController::class, "eliminarMedida"]);
